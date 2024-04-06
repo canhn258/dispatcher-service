@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: dispatcher-service
+  config:
+    import: "optional:configserver:"
   cloud:
     config:
       uri: http://localhost:8888
@@ -23,7 +25,7 @@ spring:
           destination: order-accepted
           group: ${spring.application.name}
         packlabel-out-0:
-            destination: order-dispatched
+          destination: order-dispatched
   rabbitmq:
     host: localhost
     port: 5672
